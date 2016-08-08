@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 ruby ENV['CUSTOM_RUBY_VERSION'] ||
-  File.read(File.join(File.dirname(__FILE__), '.ruby-version')).strip
+  File.read(File.join(File.dirname(__FILE__), '.ruby_version')).strip
 
 gem 'rails',                   '5.0.0'
 gem 'bcrypt',                  '3.1.11'
