@@ -1,3 +1,6 @@
+# References:
+# - https://docs.travis-ci.com/user/database-setup/#PostgreSQL
+# - https://docs.travis-ci.com/user/caching/#Bundler
 language: ruby
 cache: bundler
 rvm:
