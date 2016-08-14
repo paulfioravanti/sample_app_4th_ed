@@ -20,8 +20,8 @@ gem "jbuilder",                "2.4.1"
 gem "pg",                      "0.18.4"
 
 group :development, :test do
-  gem "byebug",  "9.0.0", platform: :mri
-  gem "dotenv",  "~> 2.1.1"
+  gem "byebug",                "9.0.0", platform: :mri
+  gem "dotenv-rails",          "~> 2.1.1"
 end
 
 group :development do
