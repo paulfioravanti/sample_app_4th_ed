@@ -22,8 +22,3 @@
 
 # Ignore Spring files.
 /spring/*.pid
-
-# Ignore .env config files
-/.env.development
-/.env.test
-/.env.production
