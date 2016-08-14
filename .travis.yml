@@ -1,0 +1,16 @@
+language: ruby
+rvm:
+- <%= File.read('.ruby-version').chomp %>
+bundler_args: --without development
+before_script:
+- psql -c "create database $DATABASE_NAME;" -U $DATABASE_USERNAME
+- bundle exec rake db:migrate
+script:
+- bundle exec rake test
+# deploy:
+#   provider: heroku
+#   app: $HEROKU_APP_NAME
+#   api_key: $HEROKU_API_KEY
+#   run: rake db:migrate
+#   on:
+#     rvm: <%= ruby File.read('.ruby-version').chomp %>
