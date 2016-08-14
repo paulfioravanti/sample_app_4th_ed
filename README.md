@@ -1,4 +1,5 @@
 # Ruby on Rails Tutorial sample application
+[![Build Status](https://travis-ci.org/paulfioravanti/sample_app_4th_ed.svg?branch=master)](https://travis-ci.org/paulfioravanti/sample_app_4th_ed)
 
 This is the sample application for
 [*Ruby on Rails Tutorial:
