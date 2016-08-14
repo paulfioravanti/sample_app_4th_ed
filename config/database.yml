@@ -6,18 +6,18 @@ defaults: &defaults
 
 development:
   <<: *defaults
-  database: <%= Rails.application.secrets.database_name %>
-  username: <%= Rails.application.secrets.database_username %>
-  password: <%= Rails.application.secrets.database_password %>
+  database: <%= Rails.application.secrets.app_database_name %>
+  username: <%= Rails.application.secrets.app_database_username %>
+  password: <%= Rails.application.secrets.app_database_password %>
 
 test:
   <<: *defaults
-  database: <%= Rails.application.secrets.database_name %>
-  username: <%= Rails.application.secrets.database_username %>
-  password: <%= Rails.application.secrets.database_password %>
+  database: <%= Rails.application.secrets.app_database_name %>
+  username: <%= Rails.application.secrets.app_database_username %>
+  password: <%= Rails.application.secrets.app_database_password %>
 
 production:
   <<: *defaults
-  database: <%= Rails.application.secrets.database_name %>
-  username: <%= Rails.application.secrets.database_username %>
-  password: <%= Rails.application.secrets.database_password %>
+  database: <%= Rails.application.secrets.app_database_name %>
+  username: <%= Rails.application.secrets.app_database_username %>
+  password: <%= Rails.application.secrets.app_database_password %>
