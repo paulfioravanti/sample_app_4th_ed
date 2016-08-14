@@ -13,6 +13,6 @@ addons:
   postgresql: "9.4"
 before_script:
   - psql -c "create database $DATABASE_NAME;" -U $DATABASE_USERNAME
-  - bundle exec rake db:migrate
+  - bundle exec rails db:migrate
 script:
-  - bundle exec rake test
+  - bundle exec rails test
