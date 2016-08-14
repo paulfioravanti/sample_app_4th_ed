@@ -7,10 +7,3 @@ before_script:
   - bundle exec rake db:migrate
 script:
   - bundle exec rake test
-# deploy:
-#   provider: heroku
-#   app: $HEROKU_APP_NAME
-#   api_key: $HEROKU_API_KEY
-#   run: rake db:migrate
-#   on:
-#     rvm: <%= ruby File.read('.ruby-version').chomp %>
