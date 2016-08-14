@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 ruby ENV['CUSTOM_RUBY_VERSION'] ||
   File.read(File.join(File.dirname(__FILE__), '.ruby_version')).strip
 
-gem 'rails',                   '5.0.0'
+gem 'rails',                   '~> 5.0.0'
 gem 'bcrypt',                  '3.1.11'
 gem 'faker',                   '1.6.3'
 gem 'carrierwave',             '0.11.2'
