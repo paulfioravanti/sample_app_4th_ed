@@ -6,7 +6,8 @@ bundler_args: --without development
 services:
   - postgresql
 addons:
-  postgresql: "9.5.3"
+  # NOTE: Current latest available version of Postgres on Travis is 9.4.1
+  postgresql: "9.4"
 before_script:
   - psql -c "create database $DATABASE_NAME;" -U $DATABASE_USERNAME
   - bundle exec rake db:migrate
