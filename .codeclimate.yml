@@ -2,6 +2,9 @@
 engines:
   brakeman:
     enabled: true
+    exclude_fingerprints:
+      # Exclude params[:id] render path issue on app/controllers/pages_controller.rb
+      - 704db96e347e2afab7919367728e8e52ddd04e3a07a17ce9d7ab7d3b2e5bda91
   bundler-audit:
     enabled: true
   coffeelint:
