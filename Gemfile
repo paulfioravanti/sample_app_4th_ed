@@ -36,4 +36,5 @@ group :test do
   gem "minitest-reporters",       "1.1.9"
   gem "guard",                    "2.13.0"
   gem "guard-minitest",           "2.4.4"
+  gem "codeclimate-test-reporter", "~> 0.6.0", require: nil
 end

@@ -1,5 +1,5 @@
 # Ruby on Rails Tutorial sample application
-[![Build Status](https://travis-ci.org/paulfioravanti/sample_app_4th_ed.svg?branch=master)](https://travis-ci.org/paulfioravanti/sample_app_4th_ed) [![Code Climate](https://codeclimate.com/github/paulfioravanti/sample_app_4th_ed/badges/gpa.svg)](https://codeclimate.com/github/paulfioravanti/sample_app_4th_ed)
+[![Build Status](https://travis-ci.org/paulfioravanti/sample_app_4th_ed.svg?branch=master)](https://travis-ci.org/paulfioravanti/sample_app_4th_ed) [![Code Climate](https://codeclimate.com/github/paulfioravanti/sample_app_4th_ed/badges/gpa.svg)](https://codeclimate.com/github/paulfioravanti/sample_app_4th_ed) [![Test Coverage](https://codeclimate.com/github/paulfioravanti/sample_app_4th_ed/badges/coverage.svg)](https://codeclimate.com/github/paulfioravanti/sample_app_4th_ed/coverage) [![Issue Count](https://codeclimate.com/github/paulfioravanti/sample_app_4th_ed/badges/issue_count.svg)](https://codeclimate.com/github/paulfioravanti/sample_app_4th_ed)
 
 This is the sample application for
 [*Ruby on Rails Tutorial:
