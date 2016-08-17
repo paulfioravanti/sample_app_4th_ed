@@ -50,6 +50,9 @@ GEM
     bootstrap-will_paginate (0.0.10)
       will_paginate
     builder (3.2.2)
+    bullet (5.2.1)
+      activesupport (>= 3.0.0)
+      uniform_notifier (~> 1.10.0)
     byebug (9.0.5)
     carrierwave (0.11.2)
       activemodel (>= 3.2.0)
@@ -354,6 +357,7 @@ GEM
       thread_safe (~> 0.1)
     uglifier (3.0.0)
       execjs (>= 0.3.0, < 3)
+    uniform_notifier (1.10.0)
     web-console (3.1.1)
       activemodel (>= 4.2)
       debug_inspector
@@ -363,6 +367,9 @@ GEM
     websocket-extensions (0.1.2)
     will_paginate (3.1.0)
     xml-simple (1.1.5)
+    xray-rails (0.1.21)
+      coffee-rails
+      rails (>= 3.1.0)
 
 PLATFORMS
   ruby
@@ -371,6 +378,7 @@ DEPENDENCIES
   bcrypt (= 3.1.11)
   bootstrap-sass (= 3.3.6)
   bootstrap-will_paginate (= 0.0.10)
+  bullet (~> 5.0)
   carrierwave (= 0.11.2)
   codeclimate-test-reporter (~> 0.6.0)
   coffee-rails (= 4.2.1)
@@ -398,6 +406,7 @@ DEPENDENCIES
   uglifier (= 3.0.0)
   web-console (= 3.1.1)
   will_paginate (= 3.1.0)
+  xray-rails (~> 0.1)
 
 RUBY VERSION
    ruby 2.3.1p112

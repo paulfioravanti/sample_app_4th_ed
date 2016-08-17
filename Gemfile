@@ -31,6 +31,8 @@ group :development do
   gem "spring",                "1.7.2"
   gem "spring-watcher-listen", "2.0.0"
   gem "pry-rails",             "~> 0.3"
+  gem "xray-rails",            "~> 0.1"
+  gem "bullet",                "~> 5.0"
 end
 
 group :test do
