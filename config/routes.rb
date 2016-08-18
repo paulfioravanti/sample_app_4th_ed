@@ -5,5 +5,7 @@ Rails.application.routes.draw do
 
   get "signup", to: "users#new"
 
+  resources :users
+
   root "pages#home"
 end
