@@ -22,6 +22,7 @@ gem "rails-footnotes",         "~> 4.0"
 # NOTE: Pre-release version used due to issue outlined in
 # https://github.com/drapergem/draper/issues/697
 gem "draper",                  "3.0.0.pre1"
+gem "immigrant",               "~> 0.3"
 
 group :development, :test do
   gem "pry-byebug",            "~> 3.2"
