@@ -17,4 +17,5 @@ before_script:
   - psql -c "create database $DATABASE_NAME;" -U $DATABASE_USERNAME
   - bundle exec rails db:migrate
 script:
+  - bundle exec rake immigrant:check_keys
   - bundle exec rails test
