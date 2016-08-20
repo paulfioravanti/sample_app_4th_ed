@@ -44,4 +44,5 @@ group :test do
   gem "guard",                     "2.13.0"
   gem "guard-minitest",            "2.4.4"
   gem "codeclimate-test-reporter", "~> 0.6.0", require: nil
+  gem "simplecov",                 "~> 0.12", require: false
 end

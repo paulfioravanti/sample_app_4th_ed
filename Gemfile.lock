@@ -413,6 +413,7 @@ DEPENDENCIES
   rails-controller-testing (= 0.1.1)
   rails-footnotes (~> 4.0)
   sass-rails (~> 5.0.5)
+  simplecov (~> 0.12)
   spring (= 1.7.2)
   spring-watcher-listen (= 2.0.0)
   turbolinks (= 5.0.0)
