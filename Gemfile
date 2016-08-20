@@ -42,6 +42,7 @@ end
 group :test do
   gem "rails-controller-testing",  "0.1.1"
   gem "minitest-reporters",        "1.1.9"
+  gem "minitest-stub-const",       "~> 0.5"
   gem "guard",                     "2.13.0"
   gem "guard-minitest",            "2.4.4"
   gem "codeclimate-test-reporter", "~> 0.6.0", require: nil
