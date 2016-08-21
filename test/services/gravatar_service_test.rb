@@ -7,23 +7,23 @@ class GravatarServiceTest < ActiveSupport::TestCase
     @email = "user@example.com"
     @digest = "1234567890"
     @hexdigest_mock =
-      Minitest::Mock.new.expect(:hexdigest, digest, [email])
+      Minitest::Mock.new.expect(:call, digest, [email])
   end
 
   test ".url without size" do
-    actual = -> { GravatarService.url(email) }
     expected = "https://secure.gravatar.com/avatar/#{digest}?s=80"
-    Digest.stub_const :MD5, hexdigest_mock do
-      assert actual, expected
+    actual = -> { GravatarService.url(email) }
+    Digest::MD5.stub :hexdigest, hexdigest_mock do
+      assert_equal expected, actual.call
     end
   end
 
   test ".url with size" do
     size = 100
-    actual = -> { GravatarService.url(email, size: size) }
     expected = "https://secure.gravatar.com/avatar/#{digest}?s=#{size}"
-    Digest.stub_const :MD5, hexdigest_mock do
-      assert actual, expected
+    actual = -> { GravatarService.url(email, size: size) }
+    Digest::MD5.stub :hexdigest, hexdigest_mock do
+      assert_equal expected, actual.call
     end
   end
 end
