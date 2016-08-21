@@ -2,7 +2,7 @@ input, textarea, select, .uneditable-input {
   border: 1px solid #bbb;
   width: 100%;
   margin-bottom: 15px;
-  @include box_sizing;
+  @include box-sizing;
 }
 
 input {
@@ -11,17 +11,17 @@ input {
 }
 
 #error_explanation {
-  color: red;
+  color: $red;
   ul {
-    color: red;
-    // margin-bottom
-    margin: 0 0 30px 0;
+    color: $red;
+    margin: 0 0 30px;
   }
 }
 
-.field_with_errors {
+.field-with-errors {
   // from Bootstrap
   @extend .has-error;
+
   .form-control {
     // from Bootstrap
     color: $state-danger-text;

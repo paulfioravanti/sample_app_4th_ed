@@ -23,6 +23,7 @@ gem "rails-footnotes",         "~> 4.0"
 # https://github.com/drapergem/draper/issues/697
 gem "draper",                  "3.0.0.pre1"
 gem "immigrant",               "~> 0.3"
+gem "autoprefixer-rails",      "~> 6.4"
 
 group :development, :test do
   gem "pry-byebug",            "~> 3.2"
