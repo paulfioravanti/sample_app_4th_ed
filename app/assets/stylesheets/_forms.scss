@@ -1,8 +1,11 @@
-input, textarea, select, .uneditable-input {
-  border: 1px solid #bbb;
-  width: 100%;
-  margin-bottom: 15px;
+input,
+textarea,
+select,
+.uneditable-input {
   @include box-sizing;
+  border: 1px solid $gray-border;
+  margin-bottom: 15px;
+  width: 100%;
 }
 
 input {
@@ -10,8 +13,9 @@ input {
   height: auto;
 }
 
-#error_explanation {
+.error-explanation {
   color: $red;
+
   ul {
     color: $red;
     margin: 0 0 30px;
