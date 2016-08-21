@@ -24,6 +24,7 @@ gem "rails-footnotes",         "~> 4.0"
 gem "draper",                  "3.0.0.pre1"
 gem "immigrant",               "~> 0.3"
 gem "autoprefixer-rails",      "~> 6.4"
+gem "annotate",                "~> 2.7"
 
 group :development, :test do
   gem "pry-byebug",            "~> 3.2"
