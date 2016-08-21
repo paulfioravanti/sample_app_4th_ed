@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   get "contact", to: "pages#show", id: "contact"
 
   get "signup", to: "users#new"
+  post "signup", to: "users#create"
 
   resources :users
 
