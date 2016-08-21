@@ -1,11 +1,13 @@
 require 'test_helper'
 
 class GravatarServiceTest < ActiveSupport::TestCase
-  attr_reader :email, :digest
+  attr_reader :email, :digest, :hexdigest_mock
 
   def setup
     @email = "user@example.com"
     @digest = "1234567890"
+    @hexdigest_mock =
+      Minitest::Mock.new.expect(:hexdigest, digest, [email])
   end
 
   test ".url without size" do
@@ -23,11 +25,5 @@ class GravatarServiceTest < ActiveSupport::TestCase
     Digest.stub_const :MD5, hexdigest_mock do
       assert actual, expected
     end
-  end
-
-  private
-
-  def hexdigest_mock
-    Minitest::Mock.new.expect(:hexdigest, digest, [email])
   end
 end
