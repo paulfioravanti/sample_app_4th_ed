@@ -33,11 +33,6 @@ class User < ApplicationRecord
 
   has_secure_password
 
-  def self.find_and_authenticate(credentials)
-    user = find_by(email: credentials[:email].downcase)
-    user&.authenticate(credentials[:password])
-  end
-
   private
 
   def downcase_email

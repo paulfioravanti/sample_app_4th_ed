@@ -3,7 +3,7 @@ class SessionsController < ApplicationController
   end
 
   def create
-    if user = User.find_and_authenticate(params[:session])
+    if user = UserAuthenticator.authenticate(params[:session])
       log_in user
       redirect_to user
     else
