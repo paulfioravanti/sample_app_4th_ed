@@ -1,7 +1,7 @@
 require "test_helper"
 
 class UsersLoginTest < ActionDispatch::IntegrationTest
-   test "login with invalid information" do
+  test "login with invalid information" do
     skip
     get login_path
     assert_template "sessions/new"
