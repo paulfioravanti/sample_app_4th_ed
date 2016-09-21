@@ -1,0 +1,44 @@
+{
+  "ignored_warnings": [
+    {
+      "warning_type": "Dynamic Render Path",
+      "warning_code": 15,
+      "fingerprint": "704db96e347e2afab7919367728e8e52ddd04e3a07a17ce9d7ab7d3b2e5bda91",
+      "message": "Render path contains parameter value",
+      "file": "app/controllers/pages_controller.rb",
+      "line": 3,
+      "link": "http://brakemanscanner.org/docs/warning_types/dynamic_render_path/",
+      "code": "render(action => params[:id], {})",
+      "render_path": null,
+      "location": {
+        "type": "method",
+        "class": "PagesController",
+        "method": "show"
+      },
+      "user_input": "params[:id]",
+      "confidence": "High",
+      "note": ""
+    },
+    {
+      "warning_type": "Redirect",
+      "warning_code": 18,
+      "fingerprint": "74a0c8b0982e918d08d4245746f9120657eb72634a1c40de8214eca90c79e439",
+      "message": "Possible unprotected redirect",
+      "file": "app/controllers/sessions_controller.rb",
+      "line": 8,
+      "link": "http://brakemanscanner.org/docs/warning_types/redirect/",
+      "code": "redirect_to(UserAuthenticator.authenticate(params[:session]))",
+      "render_path": null,
+      "location": {
+        "type": "method",
+        "class": "SessionsController",
+        "method": "create"
+      },
+      "user_input": "params[:session]",
+      "confidence": "Weak",
+      "note": ""
+    }
+  ],
+  "updated": "2016-09-21 22:38:03 +1000",
+  "brakeman_version": "3.3.5"
+}
