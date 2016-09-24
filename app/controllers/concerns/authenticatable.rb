@@ -1,4 +1,17 @@
-module SessionsHelper
+module Authenticatable
+  extend ActiveSupport::Concern
+
+  included do
+    helper_method(
+      :log_in,
+      :current_user,
+      :logged_in?,
+      :log_out
+    )
+  end
+
+  private
+
   # Logs in the given user.
   def log_in(user)
     session[:user_id] = user.id

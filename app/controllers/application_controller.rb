@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-  include SessionsHelper
+  include Authenticatable
 
   protect_from_forgery with: :exception
 
