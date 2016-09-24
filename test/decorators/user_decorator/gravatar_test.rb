@@ -1,7 +1,8 @@
 require 'test_helper'
 
 class UserDecorator::GravatarTest < Draper::TestCase
-  attr_reader :user, :size, :gravatar_url, :gravatar_service_mock, :image_tag_mock
+  attr_reader :user, :size, :gravatar_url,
+              :gravatar_service_mock, :image_tag_mock
 
   def setup
     @user = UserDecorator.decorate(
