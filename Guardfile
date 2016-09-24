@@ -20,7 +20,7 @@ clearing :on
 
 # NOTE: spring: true can't be used in Rails 5 because of reasons outlined here:
 # https://github.com/guard/guard-minitest/issues/130
-guard :minitest, spring: "bin/rails test", env: { "NO_COVERAGE": true } do
+guard :minitest, spring: "bin/rails test", env: { "NO_COVERAGE" => true } do
   # with Minitest::Unit
   watch(%r{^test/(.*)\/?test_(.*)\.rb$})
   watch(%r{^lib/(.*/)?([^/]+)\.rb$}) { |m| "test/#{m[1]}test_#{m[2]}.rb" }
