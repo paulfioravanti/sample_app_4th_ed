@@ -7,6 +7,7 @@ require "rails/test_help"
 require "minitest/reporters"
 require "minitest/mock"
 Minitest::Reporters.use!
+Dir[Rails.root.join("test/support/**/*.rb")].each { |file| require file }
 
 class ActiveSupport::TestCase
   # Setup all fixtures in test/fixtures/*.yml for all tests in alphabetical order.
