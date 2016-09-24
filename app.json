@@ -1,0 +1,7 @@
+{
+  "name": "Ruby on Rails Tutorial",
+  "description": "Rails Tutorial 4th edition",
+  "repository": "https://github.com/paulfioravanti/sample_app_4th_ed",
+  "logo": "https://softcover.s3.amazonaws.com/636/ruby_on_rails_tutorial_4th_edition/images/cover-web.png",
+  "keywords": ["ruby", "rails", "tutorial", "Michael Hartl"]
+}
