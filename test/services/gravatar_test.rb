@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class GravatarServiceTest < ActiveSupport::TestCase
+class GravatarTest < ActiveSupport::TestCase
   attr_reader :email, :digest, :hexdigest_mock
 
   def setup
@@ -12,7 +12,7 @@ class GravatarServiceTest < ActiveSupport::TestCase
 
   test ".url without size" do
     expected = "https://secure.gravatar.com/avatar/#{digest}?s=80"
-    actual = -> { GravatarService.url(email) }
+    actual = -> { Gravatar.url(email) }
     Digest::MD5.stub :hexdigest, hexdigest_mock do
       assert_equal expected, actual.call
     end
@@ -21,7 +21,7 @@ class GravatarServiceTest < ActiveSupport::TestCase
   test ".url with size" do
     size = 100
     expected = "https://secure.gravatar.com/avatar/#{digest}?s=#{size}"
-    actual = -> { GravatarService.url(email, size: size) }
+    actual = -> { Gravatar.url(email, size: size) }
     Digest::MD5.stub :hexdigest, hexdigest_mock do
       assert_equal expected, actual.call
     end
