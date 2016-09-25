@@ -9,8 +9,12 @@ select,
 }
 
 input {
-  // height: auto !important;
   height: auto;
+
+  &[type="checkbox"].remember-me {
+    margin-left: 0;
+    width: auto;
+  }
 }
 
 .error-explanation {
@@ -33,15 +37,11 @@ input {
 }
 
 .checkbox {
-  margin-top: -10px;
   margin-bottom: 10px;
-  span {
-    margin-left: 20px;
-    font-weight: normal;
-  }
-}
+  margin-top: -10px;
 
-#session_remember_me {
-  width: auto;
-  margin-left: 0;
+  span {
+    font-weight: normal;
+    margin-left: 20px;
+  }
 }
