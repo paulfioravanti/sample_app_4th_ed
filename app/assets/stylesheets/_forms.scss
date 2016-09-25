@@ -9,8 +9,12 @@ select,
 }
 
 input {
-  // height: auto !important;
   height: auto;
+
+  &[type="checkbox"].remember-me {
+    margin-left: 0;
+    width: auto;
+  }
 }
 
 .error-explanation {
@@ -29,5 +33,15 @@ input {
   .form-control {
     // from Bootstrap
     color: $state-danger-text;
+  }
+}
+
+.checkbox {
+  margin-bottom: 10px;
+  margin-top: -10px;
+
+  span {
+    font-weight: normal;
+    margin-left: 20px;
   }
 }

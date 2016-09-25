@@ -18,4 +18,4 @@
 michael:
   name: Michael Example
   email: michael@example.com
-  password_digest: <%= HashDigest.create('password') %>
+  password_digest: <%= UserAuthenticator.digest('password') %>
