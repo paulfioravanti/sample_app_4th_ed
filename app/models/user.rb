@@ -9,6 +9,7 @@
 #  updated_at      :datetime         not null
 #  password_digest :string
 #  remember_digest :string
+#  admin           :boolean          default(FALSE)
 #
 # Indexes
 #
@@ -30,7 +31,8 @@ class User < ApplicationRecord
             uniqueness: { case_sensitive: false }
   validates :password,
             presence: true,
-            length: { minimum: 6 }
+            length: { minimum: 6 },
+            allow_nil: true
 
   before_save :downcase_email
 
