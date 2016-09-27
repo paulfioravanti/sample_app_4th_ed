@@ -6,24 +6,16 @@ module UserAuthenticator
 
   # Remembers a user in the database for use in persistent sessions.
   def self.remember(user)
-    user.remember_token = new_token
-    user.update_attribute(:remember_digest, digest(user.remember_token))
+    user.remember_token = Token.generate
+    user.update_attribute(
+      :remember_digest,
+      Digest.generate(user.remember_token)
+    )
   end
 
   # Forgets a user.
   def self.forget(user)
     user.update_attribute(:remember_digest, nil)
-  end
-
-  # Returns the hash digest of the given string.
-  def self.digest(string)
-    cost =
-      if ActiveModel::SecurePassword.min_cost
-        BCrypt::Engine::MIN_COST
-      else
-        BCrypt::Engine.cost
-      end
-    BCrypt::Password.create(string, cost: cost)
   end
 
   # Returns true if the given token matches the digest.
@@ -33,9 +25,5 @@ module UserAuthenticator
     else
       false
     end
-  end
-
-  def self.new_token
-    SecureRandom.urlsafe_base64
   end
 end
