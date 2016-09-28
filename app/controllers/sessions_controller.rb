@@ -3,7 +3,7 @@ class SessionsController < ApplicationController
   end
 
   def create
-    if (user = UserAuthenticator.authenticate(params[:session]))
+    if (user = User.authenticate(params[:session]))
       log_in user
       params[:session][:remember_me] == "1" ? remember(user) : forget(user)
       redirect_back_or user

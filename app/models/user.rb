@@ -35,8 +35,28 @@ class User < ApplicationRecord
             allow_nil: true
 
   before_save :downcase_email
+  before_create :create_activation_digest
 
   has_secure_password
+
+  def self.authenticate(credentials)
+    user = find_by(email: credentials[:email].downcase)
+    user&.authenticate(credentials[:password])
+  end
+
+  # Remembers a user in the database for use in persistent sessions.
+  def remember
+    self.remember_token = Token.generate
+    update_attribute(
+      :remember_digest,
+      Password::Digest.generate(remember_token)
+    )
+  end
+
+  # Forgets a user.
+  def forget
+    update_attribute(:remember_digest, nil)
+  end
 
   private
 
@@ -46,6 +66,6 @@ class User < ApplicationRecord
 
   def create_activation_digest
     self.activation_token  = Token.generate
-    self.activation_digest = Digest.generate(activation_token)
+    self.activation_digest = Password::Digest.generate(activation_token)
   end
 end
