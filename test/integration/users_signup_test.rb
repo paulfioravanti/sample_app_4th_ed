@@ -1,40 +1,60 @@
 require 'test_helper'
 
 class UsersSignupTest < ActionDispatch::IntegrationTest
-  test "invalid signup information" do
+  def setup
     get signup_path
-    assert_no_difference 'User.count' do
-      post(users_path, params: {
+  end
+
+  class InvalidSignup < self
+    attr_reader :params
+
+    def setup
+      super
+      @params = {
         user: {
           name:  "",
           email: "user@invalid",
           password: "foo",
           password_confirmation: "bar"
         }
-      })
+      }
     end
-    assert_template 'users/new'
-    assert_select 'div.error-explanation'
-    assert_select 'div.field-with-errors'
-    assert_not flash[:success]
+
+    test "invalid signup information" do
+      assert_no_difference 'User.count' do
+        post(users_path, params: params)
+      end
+      assert_template 'users/new'
+      assert_select 'div.error-explanation'
+      assert_select 'div.field-with-errors'
+      assert_not flash[:success]
+    end
   end
 
-  test "valid signup information" do
-    get signup_path
-    assert_difference 'User.count', 1 do
-      post(users_path, params: {
+  class ValidSignup < self
+    attr_reader :params
+
+    def setup
+      super
+      @params = {
         user: {
           name:  "Example User",
           email: "user@example.com",
           password: "password",
           password_confirmation: "password"
         }
-      })
+      }
     end
 
-    follow_redirect!
-    # assert_template 'users/show'
-    # assert flash[:success]
-    # assert logged_in_user?
+    test "valid signup information" do
+      assert_difference 'User.count', 1 do
+        post(users_path, params: params)
+      end
+
+      follow_redirect!
+      # assert_template 'users/show'
+      # assert flash[:success]
+      # assert logged_in_user?
+    end
   end
 end

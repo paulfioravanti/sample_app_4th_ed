@@ -24,7 +24,7 @@ class UserDecorator::GravatarTest < Draper::TestCase
     @image_tag_mock =
       Minitest::Mock.new.expect(
         :call,
-        :image_tag_html,
+        :image_tag_html, # represents the HTML generated from `image_tag`
         [gravatar_url, { alt: user.name, class: "gravatar" }]
       )
   end
