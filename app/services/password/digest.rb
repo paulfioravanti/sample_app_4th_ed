@@ -12,6 +12,7 @@ module Password
     end
 
     # Returns true if the given token matches the digest.
+    # aka User#authenticated?
     def self.matches_token?(digest, token)
       if digest.present?
         BCrypt::Password.new(digest).is_password?(token)

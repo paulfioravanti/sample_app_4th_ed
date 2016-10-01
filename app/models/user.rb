@@ -47,6 +47,10 @@ class User < ApplicationRecord
     user&.authenticate(credentials[:password])
   end
 
+  def self.active
+    where(activated: true)
+  end
+
   # Remembers a user in the database for use in persistent sessions.
   def remember
     self.remember_token = Token.generate
@@ -59,6 +63,11 @@ class User < ApplicationRecord
   # Forgets a user.
   def forget
     update_attribute(:remember_digest, nil)
+  end
+
+  # Activates a user
+  def activate
+    update_attributes(activated: true, activated_at: Time.zone.now)
   end
 
   private
