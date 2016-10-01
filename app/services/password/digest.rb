@@ -18,6 +18,8 @@ module Password
       else
         false
       end
+    rescue BCrypt::Errors::InvalidHash
+      false
     end
   end
 end

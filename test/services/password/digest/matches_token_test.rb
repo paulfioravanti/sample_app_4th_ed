@@ -32,10 +32,22 @@ class Password::Digest::MatchesTokenTest < ActiveSupport::TestCase
     end
   end
 
-  class DigestBlankTest < self
+  class DigestIsBlankTest < self
     def setup
       super
-      @digest = nil
+      @digest = ""
+      @expected = false
+    end
+
+    test ".matches_token?" do
+      assert_equal expected, actual.call
+    end
+  end
+
+  class DigestIsInvalidHashTest < self
+    def setup
+      super
+      @digest = "invalid"
       @expected = false
     end
 
