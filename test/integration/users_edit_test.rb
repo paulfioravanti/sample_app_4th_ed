@@ -7,10 +7,14 @@ class UsersEditTest < ActionDispatch::IntegrationTest
     @user = users(:michael)
   end
 
-  class UnsuccessfulEditTest < UsersEditTest
-    test "unsuccessful edit" do
+  class UnsuccessfulEditTest < self
+    def setup
+      super
       log_in_as(user)
       get edit_user_path(user)
+    end
+
+    test "unsuccessful edit" do
       assert_template 'users/edit'
 
       patch(user_path(user), params: {
@@ -25,17 +29,23 @@ class UsersEditTest < ActionDispatch::IntegrationTest
     end
   end
 
-  class SuccessfulEditTest < UsersEditTest
-    test "successful edit" do
+  class SuccessfulEditTest < self
+    # NOTE: Cannot use `attr_reader :name`
+    attr_reader :user_name, :email
+
+    def setup
+      super
+      @user_name = "Foo Bar"
+      @email = "foo@bar.com"
       get edit_user_path(user)
       log_in_as(user)
       assert_redirected_to edit_user_path(user)
-      name = "Foo Bar"
-      email = "foo@bar.com"
+    end
 
+    test "successful edit" do
       patch(user_path(user), params: {
         user: {
-          name: name,
+          name: user_name,
           email: email,
           password: "",
           password_confirmation: ""
@@ -46,7 +56,7 @@ class UsersEditTest < ActionDispatch::IntegrationTest
       assert_redirected_to user
 
       user.reload
-      assert_equal name, user.name
+      assert_equal user_name, user.name
       assert_equal email, user.email
     end
   end
