@@ -3,7 +3,7 @@ require 'test_helper'
 class User::PasswordTest < ActiveSupport::TestCase
   attr_reader :user
 
-  def setup
+  setup do
     @user = User.new(name: "Example User", email: "user@example.com")
   end
 

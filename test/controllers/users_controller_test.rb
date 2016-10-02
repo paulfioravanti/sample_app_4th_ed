@@ -3,7 +3,7 @@ require 'test_helper'
 class UsersControllerTest < ActionDispatch::IntegrationTest
   attr_reader :user, :other_user
 
-  def setup
+  setup do
     @user = users(:michael)
     @other_user = users(:archer)
   end

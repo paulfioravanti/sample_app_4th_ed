@@ -3,7 +3,7 @@ require "test_helper"
 class Password::Digest::MatchesTokenTest < ActiveSupport::TestCase
   attr_reader :token, :digest, :actual, :expected
 
-  def setup
+  setup do
     @token = "password"
     @actual = -> { Password::Digest.matches_token?(digest, token) }
   end
@@ -21,8 +21,7 @@ class Password::Digest::MatchesTokenTest < ActiveSupport::TestCase
   end
 
   class DigestIsNotPasswordTest < self
-    def setup
-      super
+    setup do
       @digest = "$2a$10$N3NMcb7r9oYQKZtlA7KkEu2YTks0M33lLlz0DrxuOIkmbk9Mi2C8W"
       @expected = false
     end
@@ -33,8 +32,7 @@ class Password::Digest::MatchesTokenTest < ActiveSupport::TestCase
   end
 
   class DigestIsBlankTest < self
-    def setup
-      super
+    setup do
       @digest = ""
       @expected = false
     end
@@ -45,8 +43,7 @@ class Password::Digest::MatchesTokenTest < ActiveSupport::TestCase
   end
 
   class DigestIsInvalidHashTest < self
-    def setup
-      super
+    setup do
       @digest = "invalid"
       @expected = false
     end

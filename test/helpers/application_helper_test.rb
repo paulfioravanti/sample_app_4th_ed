@@ -3,7 +3,7 @@ require 'test_helper'
 class ApplicationHelperTest < ActionView::TestCase
   attr_reader :string
 
-  def setup
+  setup do
     @string = "Help"
   end
 

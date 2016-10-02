@@ -3,7 +3,7 @@ require 'test_helper'
 class GravatarTest < ActiveSupport::TestCase
   attr_reader :email, :digest, :hexdigest_mock
 
-  def setup
+  setup do
     @email = "user@example.com"
     @digest = "1234567890"
     @hexdigest_mock =
@@ -11,7 +11,7 @@ class GravatarTest < ActiveSupport::TestCase
   end
 
   class GravatarWithoutSizeTest < GravatarTest
-    test ".url" do
+    test "gravatar link size is 80" do
       expected = "https://secure.gravatar.com/avatar/#{digest}?s=80"
       actual = -> { Gravatar.url(email) }
       Digest::MD5.stub :hexdigest, hexdigest_mock do
@@ -23,11 +23,11 @@ class GravatarTest < ActiveSupport::TestCase
   class GravatarWithSizeTest < GravatarTest
     attr_reader :size
 
-    def setup
+    setup do
       @size = 100
     end
 
-    test ".url" do
+    test "gravatar url includes given size" do
       expected = "https://secure.gravatar.com/avatar/#{digest}?s=#{size}"
       actual = -> { Gravatar.url(email, size: size) }
       Digest::MD5.stub :hexdigest, hexdigest_mock do

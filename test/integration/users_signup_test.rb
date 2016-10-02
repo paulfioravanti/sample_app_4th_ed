@@ -1,7 +1,7 @@
 require 'test_helper'
 
 class UsersSignupTest < ActionDispatch::IntegrationTest
-  def setup
+  setup do
     ActionMailer::Base.deliveries.clear
     get signup_path
   end
@@ -9,8 +9,7 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
   class InvalidSignup < self
     attr_reader :params
 
-    def setup
-      super
+    setup do
       @params = {
         user: {
           name:  "",
@@ -35,8 +34,7 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
   class ValidSignup < self
     attr_reader :params
 
-    def setup
-      super
+    setup do
       @params = {
         user: {
           name:  "Example User",
