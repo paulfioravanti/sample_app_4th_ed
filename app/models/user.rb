@@ -13,6 +13,8 @@
 #  activation_digest :string
 #  activated         :boolean          default(FALSE)
 #  activated_at      :datetime
+#  reset_digest      :string
+#  reset_sent_at     :datetime
 #
 # Indexes
 #
@@ -22,7 +24,7 @@
 class User < ApplicationRecord
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 
-  attr_accessor :remember_token, :activation_token
+  attr_accessor :remember_token, :activation_token, :reset_token
 
   validates :name,
             presence: true,
@@ -68,6 +70,14 @@ class User < ApplicationRecord
   # Activates a user
   def activate
     update_attributes(activated: true, activated_at: Time.zone.now)
+  end
+
+  def create_reset_digest
+    self.reset_token  = Token.generate
+    update_attributes(
+      reset_digest: Password::Digest.generate(reset_token),
+      reset_sent_at: Time.zone.now
+    )
   end
 
   private
