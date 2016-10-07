@@ -3,13 +3,12 @@ require 'test_helper'
 class UsersEditTest < ActionDispatch::IntegrationTest
   attr_reader :user
 
-  def setup
+  setup do
     @user = users(:michael)
   end
 
   class UnsuccessfulEditTest < self
-    def setup
-      super
+    setup do
       log_in_as(user)
       get edit_user_path(user)
     end
@@ -33,8 +32,7 @@ class UsersEditTest < ActionDispatch::IntegrationTest
     # NOTE: Cannot use `attr_reader :name`
     attr_reader :user_name, :email
 
-    def setup
-      super
+    setup do
       @user_name = "Foo Bar"
       @email = "foo@bar.com"
       get edit_user_path(user)

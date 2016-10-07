@@ -3,7 +3,7 @@ require "test_helper"
 class UsersLoginTest < ActionDispatch::IntegrationTest
   attr_reader :user
 
-  def setup
+  setup do
     @user = users(:michael)
   end
 

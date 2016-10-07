@@ -4,7 +4,7 @@ class UserDecorator::GravatarTest < Draper::TestCase
   attr_reader :user, :size, :gravatar_url,
               :gravatar_service_mock, :image_tag_mock
 
-  def setup
+  setup do
     @user = UserDecorator.decorate(
       User.new(
         name: "Example User",
