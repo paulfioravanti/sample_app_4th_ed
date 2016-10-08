@@ -14,7 +14,7 @@ class User::MicropostsTest < ActiveSupport::TestCase
   end
 
   test "associated microposts should be destroyed" do
-    assert_difference 'Micropost.count', -1 do
+    assert_difference "Micropost.count", -1 do
       user.destroy
     end
   end

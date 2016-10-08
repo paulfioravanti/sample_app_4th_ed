@@ -12,8 +12,9 @@ class UserDecorator < Draper::Decorator
   end
 
   def paginated_microposts
-    @paginated_microposts ||= MicropostDecorator.decorate_collection(
-      microposts.paginate(page: context[:page])
-    )
+    @paginated_microposts ||=
+      MicropostDecorator.decorate_collection(
+        microposts.paginate(page: context[:page])
+      )
   end
 end
