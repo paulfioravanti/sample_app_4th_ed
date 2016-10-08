@@ -13,9 +13,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    @microposts = MicropostDecorator.decorate_collection(
-      @user.microposts.paginate(page: params[:page])
-    )
+    @user = UserPresenter.new(user: @user, page: params[:page])
   end
 
   def new
