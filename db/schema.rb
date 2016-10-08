@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(version: 20161007053535) do
 
   create_table "microposts", id: :uuid, default: -> { "uuid_generate_v4()" }, force: :cascade do |t|
     t.text     "content"
-    t.uuid     "user_id",    null: false
+    t.uuid     "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id", "created_at"], name: "index_microposts_on_user_id_and_created_at", using: :btree
