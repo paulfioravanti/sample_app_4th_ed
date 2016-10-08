@@ -29,24 +29,24 @@ gem "danger",                  "~> 2.1"
 
 group :development, :test do
   gem "pry-byebug",            "~> 3.2"
-  gem "dotenv-rails",          "~> 2.1.1"
+  gem "dotenv-rails",          "~> 2.1"
 end
 
 group :development do
-  gem "web-console",           "3.1.1"
-  gem "listen",                "3.0.8"
-  gem "spring",                "1.7.2"
-  gem "spring-watcher-listen", "2.0.0"
+  gem "web-console",           "~> 3.1"
+  gem "listen",                "~> 3.0"
+  gem "spring",                "~> 1.7"
+  gem "spring-watcher-listen", "~> 2.0"
   gem "pry-rails",             "~> 0.3"
   gem "xray-rails",            "~> 0.1"
   gem "bullet",                "~> 5.0"
 end
 
 group :test do
-  gem "rails-controller-testing",  "0.1.1"
-  gem "minitest-reporters",        "1.1.9"
-  gem "guard",                     "2.13.0"
-  gem "guard-minitest",            "2.4.4"
-  gem "codeclimate-test-reporter", "~> 0.6.0", require: nil
+  gem "rails-controller-testing",  "~> 0.1"
+  gem "minitest-reporters",        "~> 1.1"
+  gem "guard",                     "~> 2.13"
+  gem "guard-minitest",            "~> 2.4"
+  gem "codeclimate-test-reporter", "~> 0.6", require: nil
   gem "simplecov",                 "~> 0.12", require: false
 end
