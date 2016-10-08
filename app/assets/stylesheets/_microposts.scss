@@ -1,11 +1,11 @@
-/* microposts */
+// microposts
 
 .microposts {
   list-style: none;
   padding: 0;
 
   li {
-    border-top: 1px solid #e8e8e8;
+    border-top: 1px solid $very-light-gray;
     padding: 10px 0;
   }
 
@@ -44,10 +44,12 @@ aside {
   }
 }
 
-span.picture {
-  margin-top: 10px;
+span {
+  .picture {
+    margin-top: 10px;
 
-  input {
-    border: 0;
+    input {
+      border: 0;
+    }
   }
 }
