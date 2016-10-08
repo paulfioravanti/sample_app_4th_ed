@@ -6,7 +6,7 @@
       "fingerprint": "704db96e347e2afab7919367728e8e52ddd04e3a07a17ce9d7ab7d3b2e5bda91",
       "message": "Render path contains parameter value",
       "file": "app/controllers/pages_controller.rb",
-      "line": 3,
+      "line": 5,
       "link": "http://brakemanscanner.org/docs/warning_types/dynamic_render_path/",
       "code": "render(action => params[:id], {})",
       "render_path": null,
@@ -22,12 +22,12 @@
     {
       "warning_type": "Dynamic Render Path",
       "warning_code": 15,
-      "fingerprint": "fa5aa46efdec6d497e97a43ba910d3bba573762d325868b80eb15c9bdf89e75e",
+      "fingerprint": "7ae1800a9f9cec2200ab45367913cda9da68e4493cd67e0028e18f5d5c77a78f",
       "message": "Render path contains parameter value",
       "file": "app/views/users/show.html.erb",
       "line": 15,
       "link": "http://brakemanscanner.org/docs/warning_types/dynamic_render_path/",
-      "code": "render(action => UserDecorator.decorate(User.find_with_microposts(params[:id]), :context => ({ :page => params[:page] })).microposts, {})",
+      "code": "render(action => UserDecorator.decorate(User.find_with_microposts(params[:id]), :context => ({ :page => params[:page] })).paginated_microposts, {})",
       "render_path": [{"type":"controller","class":"UsersController","method":"show","line":17,"file":"app/controllers/users_controller.rb"}],
       "location": {
         "type": "template",
@@ -38,6 +38,6 @@
       "note": ""
     }
   ],
-  "updated": "2016-10-08 22:17:04 +1100",
+  "updated": "2016-10-08 23:40:00 +1100",
   "brakeman_version": "3.4.0"
 }
