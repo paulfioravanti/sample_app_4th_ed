@@ -1,13 +1,15 @@
 class MicropostDecorator < Draper::Decorator
   delegate_all
+  decorates_association :user
 
-  # Define presentation-specific methods here. Helpers are accessed through
-  # `helpers` (aka `h`). You can override attributes, for example:
-  #
-  #   def created_at
-  #     helpers.content_tag :span, class: 'time' do
-  #       object.created_at.strftime("%a %m/%d/%y")
-  #     end
-  #   end
+  delegate :gravatar_image,
+           to: :user, prefix: true
 
+  def self.collection_decorator_class
+    PaginatingDecorator
+  end
+
+  def timestamp
+    helpers.time_ago_in_words(created_at)
+  end
 end

@@ -55,6 +55,10 @@ class User < ApplicationRecord
     where(activated: true)
   end
 
+  def self.find_with_microposts(id)
+    includes(:microposts).find(id)
+  end
+
   # Remembers a user in the database for use in persistent sessions.
   def remember
     self.remember_token = Token.generate

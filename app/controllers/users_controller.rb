@@ -13,7 +13,9 @@ class UsersController < ApplicationController
   end
 
   def show
-    @microposts = @user.microposts.paginate(page: params[:page])
+    @microposts = MicropostDecorator.decorate_collection(
+      @user.microposts.paginate(page: params[:page])
+    )
   end
 
   def new
@@ -67,7 +69,7 @@ class UsersController < ApplicationController
   end
 
   def set_user
-    @user = UserDecorator.decorate(User.find(params[:id]))
+    @user = UserDecorator.decorate(User.find_with_microposts(params[:id]))
   end
 
   def active_user

@@ -23,6 +23,8 @@ class Micropost < ApplicationRecord
   validates :user, presence: true
   validates :content, presence: true, length: { maximum: 140 }
 
+  delegate :name, to: :user, prefix: true
+
   def self.most_recent
     order(created_at: :desc)
   end
