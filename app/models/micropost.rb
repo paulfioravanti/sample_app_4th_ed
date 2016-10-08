@@ -28,4 +28,8 @@ class Micropost < ApplicationRecord
   def self.most_recent
     order(created_at: :desc)
   end
+
+  def self.by(user:)
+    where(user: user)
+  end
 end
