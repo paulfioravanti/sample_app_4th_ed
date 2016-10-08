@@ -10,4 +10,10 @@ class UserDecorator < Draper::Decorator
       Gravatar.url(email.downcase, size: size), alt: name, class: "gravatar"
     )
   end
+
+  def paginated_microposts
+    @paginated_microposts ||= MicropostDecorator.decorate_collection(
+      microposts.paginate(page: context[:page])
+    )
+  end
 end

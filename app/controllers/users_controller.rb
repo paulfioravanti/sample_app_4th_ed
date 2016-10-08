@@ -13,7 +13,6 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = UserPresenter.new(user: @user, page: params[:page])
   end
 
   def new
@@ -67,7 +66,11 @@ class UsersController < ApplicationController
   end
 
   def set_user
-    @user = UserDecorator.decorate(User.find_with_microposts(params[:id]))
+    @user =
+      UserDecorator.decorate(
+        User.find_with_microposts(params[:id]),
+        context: { page: params[:page] }
+      )
   end
 
   def active_user
