@@ -44,4 +44,4 @@ guard :minitest, spring: "bin/rails test", env: { "NO_COVERAGE" => true } do
   watch(%r{^test/test_helper\.rb$}) { 'test' }
 end
 
-notification :tmux, color_location: 'status-right-bg'
+notification :tmux, color_location: "status-right-bg"
