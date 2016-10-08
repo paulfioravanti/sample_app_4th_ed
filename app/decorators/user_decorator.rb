@@ -11,10 +11,14 @@ class UserDecorator < Draper::Decorator
     )
   end
 
-  def paginated_microposts
-    @paginated_microposts ||=
+  # NOTE: The `microposts` association needs to:
+  # a) be decorated, but also
+  # b) have a parameter passed to it so it can be paginated
+  # Hence, this implementation override of the microposts method
+  def microposts
+    @microposts ||=
       MicropostDecorator.decorate_collection(
-        microposts.paginate(page: context[:page])
+        object.microposts.paginate(page: context[:page])
       )
   end
 end
