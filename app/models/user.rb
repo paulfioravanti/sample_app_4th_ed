@@ -26,6 +26,8 @@ class User < ApplicationRecord
 
   attr_accessor :remember_token, :activation_token, :reset_token
 
+  has_many :microposts, dependent: :destroy
+
   validates :name,
             presence: true,
             length: { maximum: 50 }
@@ -51,6 +53,10 @@ class User < ApplicationRecord
 
   def self.active
     where(activated: true)
+  end
+
+  def self.find_with_microposts(id)
+    includes(:microposts).find(id)
   end
 
   # Remembers a user in the database for use in persistent sessions.

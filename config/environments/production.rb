@@ -97,4 +97,8 @@ Rails.application.configure do
     :domain         => 'heroku.com',
     :enable_starttls_auto => true
   }
+
+  config.middleware.use("::Rack::Auth::Basic") do |username, password|
+    [username, password] == [ENV["AUTH_USERNAME"], ENV["AUTH_PASSWORD"]]
+  end
 end
