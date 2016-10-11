@@ -31,6 +31,9 @@ class User < ApplicationRecord
            class_name: "Relationship",
            foreign_key: :follower_id,
            dependent: :destroy
+  has_many :following,
+           through: :active_relationships,
+           source: :followed
 
   validates :name,
             presence: true,
@@ -93,6 +96,21 @@ class User < ApplicationRecord
   # Returns true if a password reset has expired.
   def password_reset_expired?
     reset_sent_at < 2.hours.ago
+  end
+
+  # Follows a user.
+  def follow(other_user)
+    active_relationships.create(followed: other_user)
+  end
+
+  # Unfollows a user.
+  def unfollow(other_user)
+    active_relationships.find_by(followed: other_user).destroy
+  end
+
+  # Returns true if the current user is following the other user.
+  def following?(other_user)
+    following.include?(other_user)
   end
 
   private

@@ -25,9 +25,9 @@ ActiveRecord::Schema.define(version: 20161010212137) do
     t.index ["user_id", "created_at"], name: "index_microposts_on_user_id_and_created_at", using: :btree
   end
 
-  create_table "relationships", force: :cascade do |t|
-    t.integer  "follower_id"
-    t.integer  "followed_id"
+  create_table "relationships", id: :uuid, default: -> { "uuid_generate_v4()" }, force: :cascade do |t|
+    t.uuid     "follower_id"
+    t.uuid     "followed_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.index ["followed_id"], name: "index_relationships_on_followed_id", using: :btree
@@ -52,4 +52,6 @@ ActiveRecord::Schema.define(version: 20161010212137) do
   end
 
   add_foreign_key "microposts", "users"
+  add_foreign_key "relationships", "users", column: "followed_id"
+  add_foreign_key "relationships", "users", column: "follower_id"
 end
