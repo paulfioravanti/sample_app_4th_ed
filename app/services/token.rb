@@ -1,5 +1,7 @@
 module Token
-  def self.generate
+  module_function
+
+  def generate
     SecureRandom.urlsafe_base64
   end
 end
