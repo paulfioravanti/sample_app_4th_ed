@@ -50,23 +50,23 @@ class UsersController < ApplicationController
 
   def following
     @title = "Following"
-    @user  = UserDecorator.decorate(User.find(params[:id]))
-    @users = UserDecorator.decorate_collection(
-      @user.following.paginate(page: params[:page])
-    )
-    render 'show_follow'
+    show_follow(:following)
   end
 
   def followers
     @title = "Followers"
-    @user  = UserDecorator.decorate(User.find(params[:id]))
-    @users = UserDecorator.decorate_collection(
-      @user.followers.paginate(page: params[:page])
-    )
-    render 'show_follow'
+    show_follow(:followers)
   end
 
   private
+
+  def show_follow(relationship)
+    @user  = UserDecorator.decorate(User.find(params[:id]))
+    @users = UserDecorator.decorate_collection(
+      @user.public_send(relationship).paginate(page: params[:page])
+    )
+    render "show_follow"
+  end
 
   def set_user
     @user =
