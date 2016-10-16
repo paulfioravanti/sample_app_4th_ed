@@ -25,7 +25,7 @@
       "fingerprint": "7ae1800a9f9cec2200ab45367913cda9da68e4493cd67e0028e18f5d5c77a78f",
       "message": "Render path contains parameter value",
       "file": "app/views/users/show.html.erb",
-      "line": 15,
+      "line": 19,
       "link": "http://brakemanscanner.org/docs/warning_types/dynamic_render_path/",
       "code": "render(action => UserDecorator.decorate(User.find_with_microposts(params[:id]), :context => ({ :page => params[:page] })).paginated_microposts, {})",
       "render_path": [{"type":"controller","class":"UsersController","method":"show","line":17,"file":"app/controllers/users_controller.rb"}],
@@ -36,8 +36,26 @@
       "user_input": "params[:page]",
       "confidence": "Weak",
       "note": ""
+    },
+    {
+      "warning_type": "Dynamic Render Path",
+      "warning_code": 15,
+      "fingerprint": "7fb196545fdf308a57d5843ad21278f06eeadea2df15f3379820ef3c5c0c319e",
+      "message": "Render path contains parameter value",
+      "file": "app/views/users/show_follow.html.erb",
+      "line": 25,
+      "link": "http://brakemanscanner.org/docs/warning_types/dynamic_render_path/",
+      "code": "render(action => UserDecorator.decorate_collection(UserDecorator.decorate(User.find(params[:id])).public_send(relationship).paginate(:page => params[:page])), {})",
+      "render_path": [{"type":"controller","class":"UsersController","method":"show_follow","line":68,"file":"app/controllers/users_controller.rb"}],
+      "location": {
+        "type": "template",
+        "template": "users/show_follow"
+      },
+      "user_input": "params[:page]",
+      "confidence": "Weak",
+      "note": ""
     }
   ],
-  "updated": "2016-10-08 23:40:00 +1100",
+  "updated": "2016-10-16 18:39:11 +1100",
   "brakeman_version": "3.4.0"
 }
