@@ -40,13 +40,13 @@
     {
       "warning_type": "Dynamic Render Path",
       "warning_code": 15,
-      "fingerprint": "b969133f885b23a90a25814af589644279c1d0c7c50a5cb34bea411a60a36f44",
+      "fingerprint": "7fb196545fdf308a57d5843ad21278f06eeadea2df15f3379820ef3c5c0c319e",
       "message": "Render path contains parameter value",
       "file": "app/views/users/show_follow.html.erb",
       "line": 25,
       "link": "http://brakemanscanner.org/docs/warning_types/dynamic_render_path/",
-      "code": "render(action => UserDecorator.decorate_collection(UserDecorator.decorate(User.find(params[:id])).followers.paginate(:page => params[:page])), {})",
-      "render_path": [{"type":"controller","class":"UsersController","method":"followers","line":66,"file":"app/controllers/users_controller.rb"}],
+      "code": "render(action => UserDecorator.decorate_collection(UserDecorator.decorate(User.find(params[:id])).public_send(relationship).paginate(:page => params[:page])), {})",
+      "render_path": [{"type":"controller","class":"UsersController","method":"show_follow","line":68,"file":"app/controllers/users_controller.rb"}],
       "location": {
         "type": "template",
         "template": "users/show_follow"
@@ -56,6 +56,6 @@
       "note": ""
     }
   ],
-  "updated": "2016-10-16 18:32:06 +1100",
+  "updated": "2016-10-16 18:39:11 +1100",
   "brakeman_version": "3.4.0"
 }
