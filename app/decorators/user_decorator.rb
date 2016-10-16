@@ -46,6 +46,7 @@ class UserDecorator < Draper::Decorator
   private
 
   def relationships_of_current_type
-    model.public_send(context[:relationship_type])
+    @relationships_of_current_type ||=
+      model.public_send(context[:relationship_type])
   end
 end
