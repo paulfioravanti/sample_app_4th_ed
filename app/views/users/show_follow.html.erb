@@ -10,7 +10,7 @@
     <section class="stats">
       <%= render 'shared/stats' %>
       <% if @users.any? %>
-        <div class="user_avatars">
+        <div class="user-avatars">
           <% @users.each do |user| %>
             <%= link_to user.gravatar_image(size: 30), user %>
           <% end %>
