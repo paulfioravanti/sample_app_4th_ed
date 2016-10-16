@@ -108,6 +108,14 @@ class User < ApplicationRecord
     reset_sent_at < 2.hours.ago
   end
 
+  def new_relationship
+    active_relationships.build
+  end
+
+  def find_followed(user)
+    active_relationships.find_by(followed: user)
+  end
+
   # Follows a user.
   def follow(other_user)
     active_relationships.create(followed: other_user)
@@ -115,7 +123,7 @@ class User < ApplicationRecord
 
   # Unfollows a user.
   def unfollow(other_user)
-    active_relationships.find_by(followed: other_user).destroy
+    find_followed(other_user).destroy
   end
 
   # Returns true if the current user is following the other user.
