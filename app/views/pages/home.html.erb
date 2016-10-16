@@ -5,7 +5,7 @@
         <%= render "user_info" %>
       </section>
       <section class="stats">
-        <%= render 'shared/stats' %>
+        <%= render "stats", user: current_user %>
       </section>
       <section class="micropost_form">
         <%= render "micropost_form", micropost: @micropost %>
