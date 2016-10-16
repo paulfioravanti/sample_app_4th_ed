@@ -22,7 +22,30 @@ class UserDecorator < Draper::Decorator
       )
   end
 
+  def paginated_relationships
+    @paginated_relationships ||=
+      UserDecorator.decorate_collection(
+        relationships_of_current_type.paginate(page: context[:page])
+      )
+
+  end
+
+  def relationships
+    @relationships ||=
+      UserDecorator.decorate_collection(relationships_of_current_type)
+  end
+
+  def relationship_name
+    @relationship_name ||= context[:relationship_type].titleize
+  end
+
   def micropost_count
     helpers.pluralize(microposts.count, "micropost")
+  end
+
+  private
+
+  def relationships_of_current_type
+    model.public_send(context[:relationship_type])
   end
 end
