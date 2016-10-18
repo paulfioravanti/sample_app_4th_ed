@@ -1,5 +1,5 @@
 source "https://rubygems.org"
-ruby File.read(".ruby_version").chomp
+ruby File.read(".ruby-version").chomp
 
 gem "rails",                   "~> 5.0.0"
 gem "bcrypt",                  "3.1.11"
