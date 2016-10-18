@@ -5,10 +5,7 @@ class RelationshipsController < ApplicationController
     relationship_type = params[:relationship_type]
     @user = UserDecorator.decorate(
       User.find_with_relationships(params[:id], relationship_type),
-      context: {
-        page: params[:page],
-        relationship_type: relationship_type
-      }
+      context: { page: params[:page], relationship_type: relationship_type }
     )
   end
 

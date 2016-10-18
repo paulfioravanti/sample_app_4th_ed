@@ -12,7 +12,7 @@ class PagesController < ApplicationController
      @micropost = current_user.microposts.build
      @feed_items =
        MicropostDecorator.decorate_collection(
-         Micropost.by(user: current_user).
+         MicropostFeed.for(current_user).
            most_recent.paginate(page: params[:page])
        )
    end
