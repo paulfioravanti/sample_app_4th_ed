@@ -19,11 +19,12 @@ module Authenticatable
   end
 
   # Returns the current logged-in user (if any).
-  def current_user
+  def current_user(includes: nil)
     if (user_id = session[:user_id]).present?
-      @current_user ||= UserDecorator.decorate(User.find(user_id))
+      @current_user ||=
+        UserDecorator.decorate(User.includes(includes).find(user_id))
     elsif (user_id = cookies.signed[:user_id]).present?
-      user = User.find(user_id)
+      user = User.includes(includes).find(user_id)
       if user.present? &&
         Password::Digest.matches_token?(
           user.remember_digest,

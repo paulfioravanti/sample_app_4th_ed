@@ -13,6 +13,10 @@ class UsersController < ApplicationController
   end
 
   def show
+    # NOTE: active_relationships needed for the current user
+    # when showing the follow form, but not needed if the user page being
+    # shown belongs to the current user.
+    current_user(includes: :active_relationships) unless current_user?(@user)
   end
 
   def new
