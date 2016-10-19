@@ -1,0 +1,19 @@
+<div class="row">
+  <aside class="col-md-4">
+    <section class="user-info">
+      <%= render "user_info", user: current_user %>
+    </section>
+    <section class="stats">
+      <%= render "stats", user: current_user %>
+    </section>
+    <section class="micropost_form">
+      <%= render "micropost_form", micropost: @micropost %>
+    </section>
+  </aside>
+  <% if @feed_items.any? %>
+    <div class="col-md-8">
+      <h3>Micropost Feed</h3>
+      <%= render "feed", feed_items: @feed_items %>
+    </div>
+  <% end %>
+</div>
