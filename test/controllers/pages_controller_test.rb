@@ -7,25 +7,25 @@ class PagesControllerTest < ActionDispatch::IntegrationTest
     @base_title = "Ruby on Rails Tutorial Sample App"
   end
 
-  test "should get home" do
+  test "get home succeeds" do
     get root_path
     assert_response :success
     assert_select "title", base_title
   end
 
-  test "should get help" do
+  test "get help succeeds" do
     get help_path
     assert_response :success
     assert_select "title", "Help | #{base_title}"
   end
 
-  test "should get about" do
+  test "get about succeeds" do
     get about_path
     assert_response :success
     assert_select "title", "About | #{base_title}"
   end
 
-  test "should get contact" do
+  test "get contact succeeds" do
     get contact_path
     assert_response :success
     assert_select "title", "Contact | #{base_title}"
