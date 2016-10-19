@@ -128,7 +128,7 @@ class User < ApplicationRecord
 
   # Returns true if the current user is following the other user.
   def following?(other_user)
-    following.include?(other_user)
+    active_relationships.pluck(:followed_id).include?(other_user.id)
   end
 
   private
