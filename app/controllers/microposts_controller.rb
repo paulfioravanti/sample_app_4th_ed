@@ -9,7 +9,7 @@ class MicropostsController < ApplicationController
       redirect_to root_url
     else
       @feed_items = []
-      render "home"
+      render "logged_in_home"
     end
   end
 

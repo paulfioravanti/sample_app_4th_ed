@@ -39,6 +39,10 @@ class UserDecorator < Draper::Decorator
     helpers.pluralize(microposts.count, "micropost")
   end
 
+  def can_delete?(user)
+    admin? && !helpers.current_user?(user)
+  end
+
   private
 
   def relationships_of_current_type

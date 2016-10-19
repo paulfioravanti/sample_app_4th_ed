@@ -6,7 +6,7 @@ class SiteLayoutTest < ActionDispatch::IntegrationTest
   end
 
   test "layout links" do
-    assert_template 'pages/home'
+    assert_template 'pages/logged_out_home'
     assert_select "a#logo[href=?]", root_path
 
     assert_select "header nav" do
