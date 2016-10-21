@@ -1,0 +1,5 @@
+<div class="user-avatars">
+  <% relationships.each do |user| %>
+    <%= link_to user.gravatar_image(size: 30), user %>
+  <% end %>
+</div>

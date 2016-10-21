@@ -13,7 +13,12 @@ Rails.application.routes.draw do
 
   resources :users do
     member do
-      get :following, :followers
+      get :following,
+          to: "relationships#index",
+          relationship_type: "following"
+      get :followers,
+          to: "relationships#index",
+          relationship_type: "followers"
     end
   end
   resources :account_activations, only: [:edit]

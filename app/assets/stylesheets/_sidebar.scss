@@ -42,6 +42,10 @@ aside {
   overflow: auto;
   padding: 0;
 
+  .stat {
+    font-weight: bold;
+  }
+
   a {
     border-left: 1px solid $gray-lighter;
     color: $gray;

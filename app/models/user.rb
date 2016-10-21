@@ -72,6 +72,10 @@ class User < ApplicationRecord
     includes(:microposts).find(id)
   end
 
+  def self.find_with_relationships(id, relationship_type)
+    includes(relationship_type).find(id)
+  end
+
   # Remembers a user in the database for use in persistent sessions.
   def remember
     self.remember_token = Token.generate
@@ -104,6 +108,14 @@ class User < ApplicationRecord
     reset_sent_at < 2.hours.ago
   end
 
+  def new_relationship
+    active_relationships.build
+  end
+
+  def find_followed(user)
+    active_relationships.find_by(followed: user)
+  end
+
   # Follows a user.
   def follow(other_user)
     active_relationships.create(followed: other_user)
@@ -111,20 +123,12 @@ class User < ApplicationRecord
 
   # Unfollows a user.
   def unfollow(other_user)
-    active_relationships.find_by(followed: other_user).destroy
+    find_followed(other_user).destroy
   end
 
   # Returns true if the current user is following the other user.
   def following?(other_user)
-    following.include?(other_user)
-  end
-
-  # Returns a user's status feed.
-  def feed
-    following_ids = "SELECT followed_id FROM relationships
-                     WHERE  follower_id = :user_id"
-    Micropost.where("user_id IN (#{following_ids})
-                     OR user_id = :user_id", user_id: id)
+    active_relationships.pluck(:followed_id).include?(other_user.id)
   end
 
   private

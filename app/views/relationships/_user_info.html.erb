@@ -1,0 +1,8 @@
+<section class="user-info">
+  <%= user.gravatar_image %>
+  <h1><%= user.name %></h1>
+  <span><%= link_to "view my profile", user %></span>
+  <span>
+    <span class="bold">Microposts:</span> <%= user.microposts.count %>
+  </span>
+</section>

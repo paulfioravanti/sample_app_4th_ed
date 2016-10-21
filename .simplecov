@@ -1,9 +1,10 @@
 if ENV["TRAVIS"]
   require "codeclimate-test-reporter"
   CodeClimate::TestReporter.start
-else
-  unless ENV["NO_COVERAGE"]
-    # NOTE: SimpleCov doesn't seem to play nice with Rails 5 at the moment.
-    SimpleCov.start 'rails'
+end
+unless ENV["NO_COVERAGE"]
+  SimpleCov.start("rails") do
+    add_filter "/app/channels/"
+    add_filter "/app/jobs/"
   end
 end

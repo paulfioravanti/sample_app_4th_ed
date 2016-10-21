@@ -1,7 +1,9 @@
 module Password
   module Digest
+    module_function
+
     # Returns the hash digest of the given string.
-    def self.generate(string)
+    def generate(string)
       cost =
         if ActiveModel::SecurePassword.min_cost
           BCrypt::Engine::MIN_COST
@@ -13,7 +15,7 @@ module Password
 
     # Returns true if the given token matches the digest.
     # aka User#authenticated?
-    def self.matches_token?(digest, token)
+    def matches_token?(digest, token)
       if digest.present?
         BCrypt::Password.new(digest).is_password?(token)
       else

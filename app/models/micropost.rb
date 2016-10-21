@@ -36,10 +36,6 @@ class Micropost < ApplicationRecord
     order(created_at: :desc)
   end
 
-  def self.by(user:)
-    includes(:user).where(user: user)
-  end
-
   private
 
   def picture_size
